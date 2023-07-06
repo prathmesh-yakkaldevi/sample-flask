@@ -44,7 +44,7 @@ def cleardir(path = 'runs\classify'):
 def home():
     return render_template('index.html')
 
-@app.route("/objectdetection", methods=["POST"])
+@app.route('/objectdetection', methods=["POST"])
 def predict():
     if not request.method == "POST":
         return
