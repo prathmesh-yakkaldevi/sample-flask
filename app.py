@@ -42,7 +42,7 @@ app = Flask(__name__)
 #             os.rmdir(os.path.join(root, dir))    
     
 @app.route('/')
-def home():
+def hello_world():
     return render_template('index.html')
 
 @app.route('/objectdetection', methods=["POST"])
