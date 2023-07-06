@@ -12,33 +12,33 @@ app = Flask(__name__)
 #  app.config['STATIC_FOLDER'] = PEOPLE_FOLDE
 
 # model = YOLO("final.pt")
-def Convert(lst):
-   res_dict = {}
-   for i in range(0, len(lst), 2):
-        res_dict[lst[i]] = lst[i + 1]
-        return res_dic
+# def Convert(lst):
+#    res_dict = {}
+#    for i in range(0, len(lst), 2):
+#         res_dict[lst[i]] = lst[i + 1]
+#         return res_dic
 
-def file_to_dict(file_path):
-    data_dict = {}
+# def file_to_dict(file_path):
+#     data_dict = {}
     
-    try:
-        with open(file_path, 'r') as file:
-            lines = file.readlines()
-            for line in lines:
-                value, key = line.strip().split(' ')
-                data_dict[key] = value
+#     try:
+#         with open(file_path, 'r') as file:
+#             lines = file.readlines()
+#             for line in lines:
+#                 value, key = line.strip().split(' ')
+#                 data_dict[key] = value
                 
-    except FileNotFoundError:
-        print("File not found. Please provide a valid file path.")
+#     except FileNotFoundError:
+#         print("File not found. Please provide a valid file path.")
     
-    return data_dict
+#     return data_dict
 
-def cleardir(path = 'runs\classify'):
-    for root, dirs, files in os.walk(path, topdown=False):
-        for file in files:
-            os.remove(os.path.join(root, file))
-        for dir in dirs:
-            os.rmdir(os.path.join(root, dir))    
+# def cleardir(path = 'runs\classify'):
+#     for root, dirs, files in os.walk(path, topdown=False):
+#         for file in files:
+#             os.remove(os.path.join(root, file))
+#         for dir in dirs:
+#             os.rmdir(os.path.join(root, dir))    
     
 @app.route('/')
 def home():
