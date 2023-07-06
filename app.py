@@ -11,7 +11,7 @@ app = Flask(__name__,template_folder="templates",static_folder='static')
 # app.config['UPLOAD_FOLDER'] = PEOPLE_FOLDER
 #  app.config['STATIC_FOLDER'] = PEOPLE_FOLDE
 
-model = YOLO("final.pt")
+# model = YOLO("final.pt")
 def Convert(lst):
    res_dict = {}
    for i in range(0, len(lst), 2):
@@ -46,7 +46,7 @@ def home():
 
 @app.route('/objectdetection', methods=["POST"])
 def predict():
-   return {"inside pridict": "No image file provided"}
+    return {"inside pridict": "No image file provided"}
     if not request.method == "POST":
         return
     
