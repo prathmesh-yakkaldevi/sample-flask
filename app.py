@@ -46,6 +46,7 @@ def home():
 
 @app.route('/objectdetection', methods=["POST"])
 def predict():
+   return {"inside pridict": "No image file provided"}
     if not request.method == "POST":
         return
     
