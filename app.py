@@ -1,5 +1,5 @@
 import io
-from PIL import Image
+# from PIL import Image
 from flask import Flask, request, render_template
 # from ultralytics import YOLO
 # import torch
