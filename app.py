@@ -1,11 +1,12 @@
 import io
-# from PIL import Image
+from PIL import Image
 from flask import Flask, request, render_template
 from ultralytics import YOLO
 import torch
 import os
 
-app = Flask(__name__)
+# app = Flask(__name__)
+app = Flask(__name__,template_folder="templates",static_folder='static')
 
 # PEOPLE_FOLDER = os.path.join('static')
 # app.config['UPLOAD_FOLDER'] = PEOPLE_FOLDER
@@ -47,33 +48,33 @@ def home():
 @app.route('/objectdetection', methods=["POST"])
 def predict():
     return {"inside pridict": "No image file provided"}
-    if not request.method == "POST":
-        return
+    # if not request.method == "POST":
+    #     return
     
-    if request.files.get("image"):
-        image_file = request.files["image"]
-        # print(image_file)
-        image_bytes = image_file.read()
-        img = Image.open(io.BytesIO(image_bytes))
-        results = model(img, save_txt = True)
-        # print(type)
-        img.save(r"static\images\temp.png")
-        file_path = 'runs\classify\predict\labels.txt'  
-        result = file_to_dict(file_path)
-        # print(result)
-        max_value = 0
-        for key, value in result.items():
-            # print(key, value)
-            if float(value) > 0.5 and float(value) > max_value:
-                max_value = float(value)
-                max_pair = [ key.capitalize() , value]
+    # if request.files.get("image"):
+    #     image_file = request.files["image"]
+    #     # print(image_file)
+    #     image_bytes = image_file.read()
+    #     img = Image.open(io.BytesIO(image_bytes))
+    #     results = model(img, save_txt = True)
+    #     # print(type)
+    #     img.save(r"static\images\temp.png")
+    #     file_path = 'runs\classify\predict\labels.txt'  
+    #     result = file_to_dict(file_path)
+    #     # print(result)
+    #     max_value = 0
+    #     for key, value in result.items():
+    #         # print(key, value)
+    #         if float(value) > 0.5 and float(value) > max_value:
+    #             max_value = float(value)
+    #             max_pair = [ key.capitalize() , value]
 
-        cleardir()
-        # return result
-        # max_pair.append("temp.png")
-        return render_template('object_detection.html', result=max_pair)
-    else:
-        return {"error": "No image file provided"}
+    #     cleardir()
+    #     # return result
+    #     # max_pair.append("temp.png")
+    #     return render_template('object_detection.html', result=max_pair)
+    # else:
+    #     return {"error": "No image file provided"}
 
 # if __name__ == '__main__':
 #    # app.run()
