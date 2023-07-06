@@ -12,7 +12,7 @@ app = Flask(__name__)
 # app.config['UPLOAD_FOLDER'] = PEOPLE_FOLDER
 #  app.config['STATIC_FOLDER'] = PEOPLE_FOLDE
 
-model = YOLO("final.pt")
+model = YOLO("new.pt")
 def Convert(lst):
    res_dict = {}
    for i in range(0, len(lst), 2):
