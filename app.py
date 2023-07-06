@@ -5,7 +5,7 @@ from ultralytics import YOLO
 import torch
 import os
 
-app = Flask(__name__,template_folder="templates",static_folder='static')
+app = Flask(__name__)
 
 # PEOPLE_FOLDER = os.path.join('static')
 # app.config['UPLOAD_FOLDER'] = PEOPLE_FOLDER
